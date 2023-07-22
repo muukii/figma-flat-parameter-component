@@ -2,10 +2,12 @@
   "compilerOptions": {
     "jsx": "react",
     "jsxFactory": "figma.widget.h",
+    "moduleResolution": "nodenext",
+    "allowSyntheticDefaultImports": true,
     "jsxFragmentFactory": "figma.widget.Fragment",
-    "target": "es2016",
+    "target": "ESNext",
     "lib": [
-      "es2016"
+      "ESNext"
     ],
     "strict": true,
     "typeRoots": [
