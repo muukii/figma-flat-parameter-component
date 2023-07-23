@@ -6,8 +6,8 @@ import { LabeledToggle, Toggle } from "./Toggle";
 
 import { CorePalette, Scheme } from "@material/material-color-utilities";
 
-// const scheme = Scheme.light(0xff695873);
-const scheme = Scheme.lightFromCorePalette(CorePalette.of(0x0022ff));
+const scheme = Scheme.light(0xff695873);
+// const scheme = Scheme.light(0x000000ff);
 
 function Widget() {
   const [data, setData] = useSyncedState<Data>("data", {
@@ -57,8 +57,8 @@ function bookLabeledToggle() {
       label="AAA"
       isOn={isOn}
       onClick={setIsOn}
-      activeBackgroundColor={scheme.primary.toString()}
-      activeForegroundColor={scheme.onPrimaryContainer.toString()}
+      activeBackgroundColor={scheme.surface.toString()}
+      activeForegroundColor={scheme.onSurface.toString()}
     />
   );
 }
