@@ -1,7 +1,9 @@
 const { widget } = figma;
 const { Frame, AutoLayout, useSyncedState, Input, Text, Ellipse } = widget;
+import { TextButton } from "./TextButton";
 
 export function FlatParameterView(props: {
+  tintColor: string;
   data: Data;
   onChange: (data: Data) => void;
 }) {
@@ -43,6 +45,15 @@ export function FlatParameterView(props: {
                 props.onChange({ ...props.data, parameters });
               }}
             />
+            <TextButton
+              foregroundColor={props.tintColor}
+              label="Delete"
+              onClick={() => {
+                const parameters = [...props.data.parameters];
+                parameters.splice(index, 1);
+                props.onChange({ ...props.data, parameters });
+              }}
+            />
           </AutoLayout>
           <AutoLayout
             padding={{ left: 8, right: 8, top: 16, bottom: 16 }}
@@ -58,7 +69,9 @@ export function FlatParameterView(props: {
         padding={{ top: 8, bottom: 8 }}
       >
         <AutoLayout width={"fill-parent"} height={1} />
-        <Text
+        <TextButton
+          foregroundColor={props.tintColor}
+          label="Add"
           onClick={() => {
             const parameters = [...props.data.parameters];
             parameters.push({
@@ -67,9 +80,7 @@ export function FlatParameterView(props: {
             });
             props.onChange({ ...props.data, parameters });
           }}
-        >
-          Add
-        </Text>
+        />
       </AutoLayout>
     </AutoLayout>
   );

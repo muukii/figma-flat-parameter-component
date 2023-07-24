@@ -4,11 +4,6 @@ const { Frame, AutoLayout, useSyncedState, Input, Text, Ellipse } = widget;
 import { FlatParameterView, Data } from "./FlatParameterView";
 import { LabeledToggle, Toggle } from "./Toggle";
 
-import { CorePalette, Scheme } from "@material/material-color-utilities";
-
-const scheme = Scheme.light(0xff695873);
-// const scheme = Scheme.light(0x000000ff);
-
 function Widget() {
   const [data, setData] = useSyncedState<Data>("data", {
     parameters: [],
@@ -23,28 +18,9 @@ function Widget() {
       padding={16}
       cornerRadius={8}
     >
-      <FlatParameterView data={data} onChange={setData} />
+      <FlatParameterView tintColor="#eb4034" data={data} onChange={setData} />
       <Toggle isOn={true} />
       {bookLabeledToggle()}
-      <Frame width={10} height={10} fill={scheme.background.toString()} />
-      <Frame width={10} height={10} fill={scheme.primary.toString()} />
-      <Frame width={10} height={10} fill={scheme.tertiary.toString()} />
-      <Frame width={10} height={10} fill={scheme.onTertiary.toString()} />
-      <Frame width={10} height={10} fill={scheme.onPrimary.toString()} />
-      <Frame
-        width={10}
-        height={10}
-        fill={scheme.onPrimaryContainer.toString()}
-      />
-      <Frame width={10} height={10} fill={scheme.onSecondary.toString()} />
-      <Frame
-        width={10}
-        height={10}
-        fill={scheme.onSecondaryContainer.toString()}
-      />
-      <Frame width={10} height={10} fill={scheme.onBackground.toString()} />
-      <Frame width={10} height={10} fill={scheme.onSurface.toString()} />
-      <Frame width={10} height={10} fill={scheme.surface.toString()} />
     </AutoLayout>
   );
 }
@@ -57,8 +33,8 @@ function bookLabeledToggle() {
       label="AAA"
       isOn={isOn}
       onClick={setIsOn}
-      activeBackgroundColor={scheme.surface.toString()}
-      activeForegroundColor={scheme.onSurface.toString()}
+      activeBackgroundColor={"#FF0000"}
+      activeForegroundColor={"#0000FF"}
     />
   );
 }
